@@ -7,6 +7,7 @@ require 'chunky_png'
 class Steganography
   include ChunkyPNG
 
+  # the filename is the file with the full path
   def initialize(filename:)
 	@filename = convert_to_png(filename)
 	@img = Image.from_file(@filename) 
@@ -23,6 +24,7 @@ class Steganography
 	to_s
   end
 
+  # the stego_filename is the file with the full path
   def encode(message:, stego_filename:)
 	message = message.force_encoding('UTF-8')
 	unless message.ascii_only?
