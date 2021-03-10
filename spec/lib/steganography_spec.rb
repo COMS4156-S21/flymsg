@@ -17,6 +17,7 @@ describe "While applying Steganography" do
         it "encodes and decodes properly" do
             m = "hello test"
             steg = Steganography.new(filename: test_source_filename)
+            puts "steg obj: #{steg}"
             steg.encode(message: m, stego_filename: test_steg_filename)
             
             steg = Steganography.new(filename: test_steg_filename)
