@@ -19,9 +19,9 @@ class ImageEncryptController
         
         #calling decode
         full_steg_file_name = "storage/steg_img" + file
-        steg.encode(message: message, stego_filename: full_steg_file_name)
-        encrypted_img = img_base64(filename:filename)
-        return encrypted_img
+        return steg.encode(message: message, stego_filename: full_steg_file_name)
+        #encrypted_img = img_base64(filename:filename)
+        #return encrypted_img
     end
     
     
