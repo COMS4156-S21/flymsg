@@ -1,6 +1,13 @@
 require "base64"
 
-class ImageEncryptController 
+class EncryptController < ActionController::Base
+    def create
+        encode(params[:image], params[:filename])
+    end
+
+    def index
+    end
+
     #will have one default image??
     def encode(image, message)
         
