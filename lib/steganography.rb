@@ -3,14 +3,15 @@
 
 require 'rmagick'
 require 'chunky_png'
+require 'base64'
 
 class Steganography
   include ChunkyPNG
 
   # the filename is the file with the full path
   def initialize(filename:)
-	@filename = convert_to_png(filename)
-	@img = Image.from_file(@filename) 
+	@filename = convert_to_png(filename) 
+	@img = Image.from_file(@filename)
 	@delim = "@$"
   end
 
@@ -67,16 +68,20 @@ class Steganography
 
 	message.split(@delim)[1]
   end
+  
+  def img_in_base64(filename:)
+	return Base64.encode64(File.open(filename, "rb").read)
+  end
 
   private
 
   attr_reader :img, :filename, :delim
 
-  def convert_to_png(file)
-	return file if file.split('.')[1] == 'png'
-	img = Magick::Image.read(file)[0]
+  def convert_to_png(filename)
+	return filename if File.extname(filename) == '.png'
+	img = Magick::Image.read(filename)[0]
 	img.format = 'png'
-	png_name = file.split('.')[0] + '.png'
+	png_name = filename.split('.')[0] + '.png'
 	img.write(png_name)
 	png_name
   end
