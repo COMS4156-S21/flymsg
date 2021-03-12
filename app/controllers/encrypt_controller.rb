@@ -1,8 +1,9 @@
 require "base64"
+require "steganography"
 
 class EncryptController < ActionController::Base
     def create
-        encode(params[:image], params[:filename])
+        encode(params[:image], params[:message])
     end
 
     def index
@@ -10,26 +11,15 @@ class EncryptController < ActionController::Base
 
     #will have one default image??
     def encode(image, message)
-        
-        image_base64 = Base64.decode64(image)
-        image_base64[0,8]
-        type = /(png|jpg|jpeg|gif|PNG|JPG|JPEG|GIF)/.match(image_base64[0,16])[0]
-        name = "img_file"
-        
-        file = name << "." << type
-        File.open(file, 'wb') do |f|
-            f.write(image_base64)
-        end
-        
-        full_file_name = "storage/img" + file
-        steg = Steganograaphy.new(filename: full_file_name)
-        
-        #calling decode
-        full_steg_file_name = "storage/steg_img" + file
+        curr_dir =  "#{File.expand_path File.dirname(__FILE__)}"
+        storage_dir = "#{curr_dir}/../../storage"
+
+        tempfile_path = image.tempfile.path
+        file_name = image.original_filename
+
+        steg = Steganography.new(filename: tempfile_path)
+        full_steg_file_name = "#{storage_dir}/steg_img/" + file_name
         return steg.encode(message: message, stego_filename: full_steg_file_name)
-        #encrypted_img = img_base64(filename:filename)
-        #return encrypted_img
-    end
-    
+    end    
     
 end

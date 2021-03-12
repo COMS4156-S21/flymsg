@@ -1,1 +1,5 @@
-<p>hello world</p>
+<%= form_with multipart: true do |form| %>
+    <%= form.file_field :image %>
+    <%= form.text_field :message %>
+    <%= form.submit "Encrypt" %>
+<% end %>
