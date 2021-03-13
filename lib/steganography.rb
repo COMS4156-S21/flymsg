@@ -70,7 +70,7 @@ class Steganography
   end
   
   def img_in_base64(filename:)
-	return Base64.encode64(File.open(filename, "rb").read)
+	return Base64.strict_encode64(File.open(filename, "rb").read)
   end
 
   private

@@ -11,7 +11,7 @@ test_source_filename = "#{File.expand_path File.dirname(__FILE__)}/../support/ms
 test_steg_filename = "#{File.expand_path File.dirname(__FILE__)}/../support/ms_steg.png"
 small_img_filename = "#{File.expand_path File.dirname(__FILE__)}/../support/1x1.png"
 small_img_steg_filename = "#{File.expand_path File.dirname(__FILE__)}/../support/1x1_steg.png"
-small_img_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACn\nej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVO\nRK5CYII=\n"
+small_img_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="
 
 describe "While applying Steganography" do
     context "when the ascii message and image are passed" do
