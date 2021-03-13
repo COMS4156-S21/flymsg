@@ -3,8 +3,6 @@ require 'cgi'
 require "base64"
 require "steganography"
 require 'steganography_ex'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
 When /ASCII (.*) and (.*) are passed/ do |message, image|
     message = "hello test"
