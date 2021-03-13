@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: redirect(path: 'encrypt')
   resources :encrypt
   resources :decrypt
+  resources :view
 end
