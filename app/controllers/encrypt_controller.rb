@@ -19,7 +19,9 @@ class EncryptController < ActionController::Base
 
         steg = Steganography.new(filename: tempfile_path)
         full_steg_file_name = "#{storage_dir}/steg_img/" + file_name
-        return steg.encode(message: message, stego_filename: full_steg_file_name)
+        steg.encode(message: message, stego_filename: full_steg_file_name)
+
+        redirect_to view_path(Base64.strict_encode64(file_name))
     end    
     
 end
