@@ -10,7 +10,7 @@ class DecryptController < ActionController::Base
     end
 
     def show
-        @message = params[:id]
+        @message = Base64.decode64(params[:id])
     end
 
     def decode(image)
@@ -24,6 +24,6 @@ class DecryptController < ActionController::Base
         full_file_name = "#{storage_dir}/img/" + file_name
         message = steg.decode()
 
-        redirect_to decrypt_path(message)
+        redirect_to decrypt_path(Base64.strict_encode64(message))
     end 
 end

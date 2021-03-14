@@ -1,5 +1,5 @@
 <p>Download Encrypted Image</p>
-<%= image_tag(@file_name, class: "img-responsive") %>
+<%= image_tag('data:image/png;base64,' + @file_data, class: "img-responsive") %>
 
 <%= form_with url: "/download", method: :post do |form| %>
     <%= form.hidden_field :file_name, value: @file_name %>
