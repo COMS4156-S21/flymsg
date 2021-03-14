@@ -269,6 +269,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thor (1.1.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   spring
+  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
