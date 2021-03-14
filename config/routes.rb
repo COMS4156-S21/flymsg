@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :encrypt
   resources :decrypt
   resources :view
+  post '/download', to: 'view#download'
 end

@@ -1,2 +1,7 @@
 <p>Download Encrypted Image</p>
 <%= image_tag(@file_name, class: "img-responsive") %>
+
+<%= form_with url: "/download", method: :post do |form| %>
+    <%= form.hidden_field :file_name, value: @file_name %>
+    <%= form.submit "Download" %>
+<% end %>
