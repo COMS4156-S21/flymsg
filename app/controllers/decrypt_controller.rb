@@ -1,5 +1,6 @@
 require "base64"
 require "steganography"
+require "constants"
 
 class DecryptController < ActionController::Base
     def create
@@ -14,14 +15,10 @@ class DecryptController < ActionController::Base
     end
 
     def decode(image)
-        curr_dir =  "#{File.expand_path File.dirname(__FILE__)}"
-        storage_dir = "#{curr_dir}/../../storage"
-
         tempfile_path = image.tempfile.path
         file_name = image.original_filename
 
         steg = Steganography.new(filename: tempfile_path)
-        full_file_name = "#{storage_dir}/img/" + file_name
         message = steg.decode()
 
         redirect_to decrypt_path(Base64.strict_encode64(message))
