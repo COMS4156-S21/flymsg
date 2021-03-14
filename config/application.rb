@@ -18,6 +18,7 @@ module Flymsg
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.paths << Rails.root.join("storage", "img")
     config.assets.paths << Rails.root.join("storage", "steg_img")
     config.assets.check_precompiled_asset = false
   end
