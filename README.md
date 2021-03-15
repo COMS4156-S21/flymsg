@@ -8,7 +8,7 @@
 
 
 ## Instructions for local setup
-1. Clone project from https://github.com/COMS4156-S21/flymsg
+1. Clone project from https://github.com/COMS4156-S21/flymsg and use the **master** branch and **iteration-1** tag/release.
 1. Run the following commands to set up necessary native libraries for gem installation:
     1. sudo apt-get update
     1. sudo apt-get install sqlite3 libsqlite3-dev
