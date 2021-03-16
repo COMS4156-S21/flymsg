@@ -34,18 +34,22 @@ class Steganography
 
 	message = @delim + message + @delim
 	binary_message = message.unpack('B*')[0].split(//).map(&:to_i)
+	# puts binary_message
 
 	if img.area < binary_message.size
 	  raise SteganographyException.new "Message requires #{binary_message.size} pixels to encode and the "\
 		"image contains only #{img.area} pixels."
 	end
 
-	binary_message += [0] * (img.area - binary_message.size)
-
+	# binary_message += [0] * (img.area - binary_message.size)
 	img.height.times do |y|
 	  img.width.times do |x|
-		img[x, y] = encode_pixel(img[x, y],
-								 binary_message[y * img.width + x])
+		if (y * img.width + x) < binary_message.size
+			binary_data = binary_message[y * img.width + x]
+			# puts "pre img: ", img[x, y]
+			img[x, y] = encode_pixel(img[x, y], binary_data)
+			# puts "post image: ", img[x, y], " and binary data: ", binary_data
+		end
 	  end
 	end
 
