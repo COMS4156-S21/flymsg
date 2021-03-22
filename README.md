@@ -28,6 +28,10 @@
 1. View the coverage report at **coverage/index.html**
 
 
+## Secret setup - for the app
+1. heroku config:set RAILS_MASTER_KEY=$(cat config/master.key)
+
+
 ## Links
 
 **Github**: https://github.com/COMS4156-S21/flymsg
