@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rmagick'
 gem 'chunky_png'
 
+# Encryption and keys
+gem 'openssl'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
