@@ -1,7 +1,7 @@
 require 'base64'
 require 'constants'
 
-class ViewController < ActionController::Base
+class ViewController < ApplicationController
 
     def show
         @file_name = "#{STEG_IMG_STORAGE}/#{Base64.decode64(params[:id])}"

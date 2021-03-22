@@ -2,7 +2,7 @@ require "base64"
 require "steganography"
 require "constants"
 
-class EncryptController < ActionController::Base
+class EncryptController < ApplicationController
     def create
         encode(params[:image], params[:message])
     end
