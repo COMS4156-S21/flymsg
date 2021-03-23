@@ -1,6 +1,80 @@
-<h2>flymsg: Nothing's up!</h2>
-<%= form_with multipart: true do |form| %>
-    <%= form.file_field :image %>
-    <%= form.text_field :message %>
-    <%= form.submit "Encrypt" %>
-<% end %>
+  <section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Encrypt
+        </p>
+        <p class="subtitle">
+            Embed a secret message within an image!
+        </p>
+        </div>
+    </div>
+
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+            <ul>
+            <li>
+                <a>Public</a>
+            </li>
+            <li>
+                <a>Targeted</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+</section>
+
+<div class="mt-5">
+    <%= form_with multipart: true do |form| %>
+        <div id="file-upload-container" class="file is-centered is-boxed is-link has-name is-large">
+            <label class="file-label">
+                <input class="file-input" type="file" name="image" accept="image/*">
+                <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Upload an image
+                </span>
+                </span>
+                <span class="file-name">
+                    eg. flyer.jpg
+                </span>
+            </label>
+        </div>
+        
+
+        <div class="has-text-centered mt-5" style="margin: 0 26rem">
+            <div class="field">
+                <p class="control has-icons-left">
+                    <%= form.text_field :message, class: "input", placeholder: "secret message" %>
+                    <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="has-text-centered mt-5">
+            <div class="field">
+                <p class="control">
+                    <%= form.submit "Encrypt", class: "button is-primary is-medium is-rounded" %>
+                </p>
+            </div>
+        </div>
+
+    <% end %>
+
+    
+</div>
+
+<script>
+  const fileInput = document.querySelector('#file-upload-container input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#file-upload-container .file-name');
+      fileName.textContent = fileInput.files[0].name;
+    }
+  }
+</script>
