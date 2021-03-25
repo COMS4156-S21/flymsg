@@ -20,33 +20,33 @@ class Encryption
     end
 
     # checks if the hashed password and plaintext are same given the salt
-    def self.check_hashed_password(plaintext: plaintext_password, hash: hashed_password, salt: salt)
+    def self.check_hashed_password(plaintext: plaintext_password, hash: hashed_password, salt: salt_for_password)
         return OpenSSL.fixed_length_secure_compare(
                     hashed_password,
-                    calc_hash(plaintext_password, salt, NUM_ITERATIONS))
+                    calc_hash(plaintext_password, salt_for_password, NUM_ITERATIONS))
     end
 
     # encrypt message using private key
-    def self.encrypt_message_private_key(key: key, msg: msg)
-        key = key_from_existing(key)
+    def self.encrypt_message_private_key(key: pem, message: msg)
+        key = key_from_existing(pem)
         return key.private_encrypt(msg)
     end
 
     # decrypt message using private key
-    def self.decrypt_message_private_key(key: key, msg: msg)
-        key = key_from_existing(key)
+    def self.decrypt_message_private_key(key: pem, message: msg)
+        key = key_from_existing(pem)
         return key.private_decrypt(msg)
     end
 
     # encrypt message using public key
-    def self.encrypt_message_public_key(key: key, msg: msg)
-        key = key_from_existing(key)
+    def self.encrypt_message_public_key(key: pem, msg: msg)
+        key = key_from_existing(pem)
         return key.public_encrypt(msg)
     end
 
     # decrypt message using public key
-    def self.decrypt_message_public_key(key: key, msg: msg)
-        key = key_from_existing(key)
+    def self.decrypt_message_public_key(key: pem, msg: msg)
+        key = key_from_existing(pem)
         return key.public_decrypt(msg)
     end
 

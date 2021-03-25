@@ -4,8 +4,7 @@ class CreateMessageStatuses < ActiveRecord::Migration[6.1]
       t.string :img_id
       t.string :unread
       t.string :deleted
-      t.timestamp :created_on
-      t.int :ttl
+      t.integer :ttl
 
       t.timestamps
     end

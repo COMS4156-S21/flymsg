@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'users/create'
-  get 'users/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: redirect(path: 'encrypt')
+  root to: redirect(path: 'login')
   resources :encrypt
   resources :decrypt
   resources :view, only: [:show]
+  resources :users, only: [:create, :new]
   post '/download', to: 'view#download'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
