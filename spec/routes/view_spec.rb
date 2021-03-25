@@ -27,7 +27,7 @@ describe "Visit view endpoint", :type => :request do
         it "contains the image" do
             get "/view/#{Base64.strict_encode64(steg_file_name)}"
 
-            expect(response.body).to include("Download Encrypted Image")
+            expect(response.body).to include("Download")
             expect(response.body).to include(Base64.encode64(File.open(test_steg_filename , "rb").read))
         end
     end

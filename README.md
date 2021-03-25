@@ -17,6 +17,7 @@
 1. Move to the cloned directory of the project
 1. Run the following commands to run it locally:
     1. bundle install
+    1. rails webpacker:install   # (if required)
     1. rails server -e production
         1. If you need logging either use development with ‘rails server’ or production with ‘export RAILS_LOG_TO_STDOUT=1; rails server -e production’
 1. Visit the localhost:3000/encrypt endpoint to embed a message into an image of choice.

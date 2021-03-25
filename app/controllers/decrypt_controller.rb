@@ -2,12 +2,13 @@ require "base64"
 require "steganography"
 require "constants"
 
-class DecryptController < ActionController::Base
+class DecryptController < ApplicationController
     def create
         decode(params[:image])
     end
 
     def index
+        @targeted = params.has_key?(:targeted) && params[:targeted] == "true"
     end
 
     def show
