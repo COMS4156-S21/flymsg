@@ -20,7 +20,7 @@ describe "Visit decrypt endpoint", :type => :request do
             get "/decrypt/#{Base64.strict_encode64(message)}"
 
             expect(response).to render_template("show")
-            expect(response.body).to include("Decrypted Message")
+            expect(response.body).to include("Message Decrypted!")
             expect(response.body).to include(message)
         end
     end
