@@ -1,0 +1,2 @@
+class MessageStatus < ApplicationRecord
+end
