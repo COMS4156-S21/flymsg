@@ -8,6 +8,7 @@ class DecryptController < ApplicationController
     end
 
     def index
+        @targeted = params.has_key?(:targeted) && params[:targeted] == "true"
     end
 
     def show
