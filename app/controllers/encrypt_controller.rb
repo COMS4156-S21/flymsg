@@ -3,6 +3,8 @@ require "steganography"
 require "constants"
 
 class EncryptController < ApplicationController
+    before_action :logged_in_user
+
     def create
         encode(params[:image], params[:message])
     end

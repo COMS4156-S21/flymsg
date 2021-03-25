@@ -3,6 +3,8 @@ require "steganography"
 require "constants"
 
 class DecryptController < ApplicationController
+    before_action :logged_in_user
+
     def create
         decode(params[:image])
     end
