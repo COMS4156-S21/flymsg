@@ -15,10 +15,10 @@
         <div class="container">
             <ul>
             <li>
-                <a>Public</a>
+                <a href="/encrypt?targeted=false">Public</a>
             </li>
             <li>
-                <a>Targeted</a>
+                <a href="/encrypt?targeted=true">Targeted</a>
             </li>
             </ul>
         </div>
@@ -56,6 +56,20 @@
                 </p>
             </div>
         </div>
+
+        <% if @targeted %>
+            <div class="has-text-centered mt-5" style="margin: 0 26rem">
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <%= form.text_field :key, class: "input", placeholder: "receiver public key" %>
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        <% end %>
+
         <div class="has-text-centered mt-5">
             <div class="field">
                 <p class="control">

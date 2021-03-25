@@ -8,6 +8,7 @@ class EncryptController < ApplicationController
     end
 
     def index
+        @targeted = params.has_key?(:targeted) && params[:targeted] == "true"
     end
 
     #will have one default image??
