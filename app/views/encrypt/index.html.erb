@@ -1,6 +1,17 @@
-<h2>flymsg: Nothing's up!</h2>
-<%= form_with multipart: true do |form| %>
+<h2 style="text-align:center">flymsg: Nothing's Up! </h2>
+<body style="background-color: #85dcb; text-align:center">
+  
+
+  <%= form_with multipart: true do |form| %>
+
+    <h3>Image to encrypt message in:</h3>
     <%= form.file_field :image %>
-    <%= form.text_field :message %>
-    <%= form.submit "Encrypt" %>
-<% end %>
+    <h3>Message: </h3>
+    <div style = "background-color: lightblue" >
+      <%= form.text_field :message %>
+      <%= form.submit "Encrypt"%> 
+    </div>
+    
+   <% end %>
+</body>
+

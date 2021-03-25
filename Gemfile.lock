@@ -170,6 +170,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.1-x86-mingw32)
       racc (~> 1.4)
+    openssl (2.2.0)
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
@@ -322,6 +323,7 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  openssl
   pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

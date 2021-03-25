@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: lightblue;
+}
+.input {
+  @apply appearance-none block w-full bg-white text-gray-800 rounded py-3 px-4 leading-tight;
+
+  &.input-with-border {
+    @apply border;
+  }
+}
