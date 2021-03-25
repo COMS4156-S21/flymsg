@@ -1,3 +1,5 @@
+# https://hackernoon.com/building-a-simple-session-based-authentication-using-ruby-on-rails-9tah3y4j
+
 require 'encryption'
 
 class SessionsController < ApplicationController
