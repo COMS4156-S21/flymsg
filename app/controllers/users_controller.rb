@@ -21,20 +21,22 @@ class UsersController < ApplicationController
     pem = Encryption.new_key
     key_vals = {:user_id => user_id, :pem => pem}
 
-    User.transaction do 
-      @user = User.create!(vals)
-      @user_keys = UserKeys.create!(key_vals)
-    end
+    begin 
+      User.transaction do 
+        @user = User.create!(vals)
+        @user_keys = UserKeys.create!(key_vals)
+      end
 
-    rescue ActiveRecord::RecordInvalid
-      flash[:failure] = "Error while creating new user"
-      redirect_to 'user#new'
+      rescue ActiveRecord::RecordInvalid
+        flash[:failure] = "Error while creating new user"
+        redirect_to 'user#new'
+      
+      else
+        flash[:success] = "Created! Please login #{params[:first_name]}!"
+        redirect_to 'login'
     end
-    
-    flash[:success] = "Created! Please login #{params[:first_name]}!"
-    redirect_to 'login'
   end
-  
+
   def user_params
     params.require(:user).permit(:last_name, :first_name, :email, :pwd)
   end
