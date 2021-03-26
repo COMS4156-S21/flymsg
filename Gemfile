@@ -32,6 +32,7 @@ gem 'chunky_png'
 
 # Encryption and keys
 gem 'openssl'
+gem 'securerandom'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
