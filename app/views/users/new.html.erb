@@ -1,38 +1,72 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-<h1>Users#create</h1>
-<!-- <p>Find me in app/views/users/create.html.erb</p> -->
-<h1>Create an account: </h1>
-<!-- <p>Find me in app/views/users/new.html.erb</p> -->
-<%= form_with do |form| %>
-  <div class="field">
-    <label class="label">First Name</label>
-    <div class="control">
-      <%= form.text_field :first_name, class: "input", placeholder: "First Name" %>
+<section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Sign Up
+        </p>
+        <p class="subtitle">
+            now to use FlyMsg
+        </p>
+        </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Last Name</label>
-    <div class="control">
-      <%= form.text_field :last_name, class: "input", placeholder: "Last Name" %>
-    </div>
-  </div>
+</section>
 
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control has-icons-left has-icons-right">
-      <%= form.email_field :email, class: "input", placeholder: "Email" %>
-  <!--     <input class="input is-danger" type="email" placeholder="Email input" value="hello@"> -->
-    </div>
-  </div>
-  <div class="field">
-    <label class="label">Password</label>
-    <%= form.password_field :password, class:"input" %>
-  </div>
 
-  <div class="field is-grouped">
-    <div class="control">
-      <%= form.submit "Create User", class: "button is-primary is-medium is-rounded" %>
-    </div>
-  </div>
-<%end>
+<div class="mt-5">
+    <%= form_with do |form| %>        
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.text_field :first_name, class: "input", placeholder: "First Name" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.text_field :last_name, class: "input", placeholder: "Last Name" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.email_field :email, class: "input", placeholder: "Email" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.password_field :pwd, class: "input", placeholder: "New Password" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-key"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+          <div class="field">
+              <p class="control">
+                  <%= form.submit "Sign Up", class: "button is-primary is-medium is-rounded" %>
+              </p>
+          </div>
+      </div>
+
+    <% end %>
+    
+</div>
