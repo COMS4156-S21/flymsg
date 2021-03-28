@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :new]
   post '/download', to: 'view#download'
   get '/login', to: 'sessions#new'
-  create '/create' to: 'users#create'
+  create '/create', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 end
