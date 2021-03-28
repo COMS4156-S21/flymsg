@@ -6,11 +6,34 @@ message = "hello test"
 
 describe "Visit decrypt endpoint", :type => :request do
     context "visit decrypt endpoint" do
-        it "contains the form" do
+        it "contains the form with correct fields" do
             get "/decrypt"
 
             expect(response).to render_template("index")
-            expect(response.body).to include("input")
+            expect(response.body).to include("image")
+            expect(response.body).to include("key")
+            expect(response.body).to include("Decrypt")
+        end
+    end
+
+    context "visit public decrypt endpoint" do
+        it "contains the form with correct fields" do
+            get "/decrypt?targeted=false"
+
+            expect(response).to render_template("index")
+            expect(response.body).to include("image")
+            expect(response.body).to include("key")
+            expect(response.body).to include("Decrypt")
+        end
+    end
+
+    context "visit targeted decrypt endpoint" do
+        it "contains the form with correct fields" do
+            get "/decrypt?targeted=true"
+
+            expect(response).to render_template("index")
+            expect(response.body).to include("image")
+            expect(response.body).not_to include("key")
             expect(response.body).to include("Decrypt")
         end
     end
