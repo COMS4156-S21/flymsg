@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'aws-sdk'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'aws-sdk'
 end
 
 group :development do
@@ -50,6 +51,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'aws-sdk'
 end
 
 group :test do
@@ -63,10 +65,12 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'aws-sdk'
 end
 
 group :production do
   gem 'pg'
+  gem 'aws-sdk'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
