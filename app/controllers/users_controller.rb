@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       
       else
         flash[:success] = "Created! Please login #{params[:first_name]}!"
-        redirect_to 'login'
+        redirect_to '/login'
     end
   end
 

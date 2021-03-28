@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :encrypt
   resources :decrypt
   resources :view, only: [:show]
-  resources :users, only: [:create, :new]
+  # resources :users, only: [:create, :new]
   post '/download', to: 'view#download'
   get '/login', to: 'sessions#new'
   get '/create', to: 'users#new'
