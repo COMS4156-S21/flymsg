@@ -1,37 +1,52 @@
-<p>Login form here</p>
-
-<div class="hero is-fullheight is-primary">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <div class="column is-8 is-offset-2">
-      
-        <h3 class="title has-text-white">Login</h3>
-          <hr class="login-hr">
-          <div class="box">
-            <div class="title has-text-grey is-5">Please enter your email and password.</div>
-            <%= form_with do |form| %>
-            <form>
-              <div class="field">
-                <div class="control">
-                  <input class="input is-large" type="email" placeholder="Email" autofocus="" name="email">
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <input class="input is-large" type="password" placeholder="Password" name="pwd">
-                </div>
-              </div>
-              
- 
-              <%= form.submit "Login", class: "button is-block is-danger is-large is-fullwidth" %>
-            </form>
-            
-            <p class="has-text-grey">
-              <a href="">Sign Up</a> &nbsp;·&nbsp;
-            </p>
-          </div>
-         <% end %>
-      </div>
+<section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Login
+        </p>
+        <p class="subtitle">
+            Please enter your email and password
+        </p>
+        </div>
     </div>
-  </div>
+</section>
+
+
+
+<div class="mt-5">
+    <%= form_with do |form| %>        
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.email_field :email, class: "input", placeholder: "Email" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.password_field :pwd, class: "input", placeholder: "Password" %>
+                  <span class="icon is-small is-left">
+                  <i class="fas fa-key"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+          <div class="field">
+              <p class="control">
+                  <%= form.submit "Login", class: "button is-primary is-medium is-rounded" %>
+              </p>
+          </div>
+          <p>New User? <a>Sign Up</a></p>
+      </div>
+
+    <% end %>
+    
 </div>
