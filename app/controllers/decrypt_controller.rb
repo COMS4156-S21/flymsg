@@ -8,7 +8,7 @@ class DecryptController < ApplicationController
     def create
         decode(params[:image])
     end
-
+ 
     def index
         @targeted = params.has_key?(:targeted) && params[:targeted] == "true"
     end
@@ -19,6 +19,10 @@ class DecryptController < ApplicationController
 
     def decode(image)
         tempfile_path = image.tempfile.path
+        
+        #placeholder code for extracting file path until full S3 integration in the next iteration  
+        #tempfile_path = "https://flymsg1.s3.us-east-2.amazonaws.com/" + image.tempfile.path
+        
         file_name = image.original_filename
 
         steg = Steganography.new(filename: tempfile_path)
