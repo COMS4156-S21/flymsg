@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     begin 
       User.transaction do 
         @user = User.create!(vals)
-        @user_keys = UserKeys.create!(key_vals)
+        @user_keys = UserKey.create!(key_vals)
       end
 
       rescue ActiveRecord::RecordInvalid
@@ -38,6 +38,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :email, :pwd)
+    params.permit(:last_name, :first_name, :email, :pwd)
   end
 end

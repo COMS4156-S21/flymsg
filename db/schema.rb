@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_031904) do
+ActiveRecord::Schema.define(version: 2021_03_28_215543) do
 
   create_table "img_storages", force: :cascade do |t|
     t.string "img_id"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_03_25_031904) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "hashed_pwd"
-    t.string "salt"
+    t.binary "hashed_pwd"
+    t.binary "salt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

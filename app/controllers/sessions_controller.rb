@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         user = User.find_by(email: vals[:email])
         if user && Encryption.check_hashed_password(plaintext: vals[:pwd], hash: user.hashed_pwd, salt: user.salt)
             log_in user
-            redirect_to root_url
+            redirect_to encrypt_index_path()
         else
             flash.now[:danger] = 'Invalid email/password combination'
             render 'new'
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
     end
 
     def session_params
-        params.require(:session).permit(:email, :pwd)
+        params.permit(:email, :pwd)
     end
 end
