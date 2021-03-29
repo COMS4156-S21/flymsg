@@ -2,7 +2,6 @@ module SessionsHelper
     def log_in(user)
       session[:user_id] = user.user_id
       session[:first_name] = user.first_name
-      puts session
     end
   
     def current_user
@@ -12,7 +11,6 @@ module SessionsHelper
     end
   
     def logged_in?
-      puts "current user", current_user
       !current_user.nil?
     end
   

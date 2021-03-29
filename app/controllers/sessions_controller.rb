@@ -4,6 +4,9 @@ require 'encryption'
 
 class SessionsController < ApplicationController
     def new
+        if logged_in?
+            redirect_to encrypt_index_path()
+        end
     end
 
     def create
