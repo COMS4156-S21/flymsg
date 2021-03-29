@@ -33,7 +33,7 @@
                 <input class="file-input" type="file" name="image" accept="image/*">
                 <span class="file-cta">
                 <span class="file-icon">
-                    <i class="fas fa-upload"></i>
+                    <i class="fa fa-upload"></i>
                 </span>
                 <span class="file-label">
                     Upload an image
@@ -51,7 +51,7 @@
                 <p class="control has-icons-left">
                     <%= form.text_field :message, class: "input", placeholder: "secret message" %>
                     <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
+                    <i class="fa fa-lock"></i>
                     </span>
                 </p>
             </div>
@@ -63,7 +63,7 @@
                     <p class="control has-icons-left">
                         <%= form.text_field :receiver_email, class: "input", placeholder: "receiver email" %>
                         <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fa fa-envelope"></i>
                         </span>
                     </p>
                 </div>
@@ -82,13 +82,3 @@
 
     
 </div>
-
-<script>
-  const fileInput = document.querySelector('#file-upload-container input[type=file]');
-  fileInput.onchange = () => {
-    if (fileInput.files.length > 0) {
-      const fileName = document.querySelector('#file-upload-container .file-name');
-      fileName.textContent = fileInput.files[0].name;
-    }
-  }
-</script>
