@@ -16,5 +16,15 @@
   <%= render "shared/header" %>
       <%= yield %>
   <%= render "shared/flash" %>
+
+  <script>
+    var fileInput = document.querySelector('#file-upload-container input[type=file]');
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector('#file-upload-container .file-name');
+        fileName.textContent = fileInput.files[0].name;
+      }
+    }
+  </script>
   </body>
 </html>
