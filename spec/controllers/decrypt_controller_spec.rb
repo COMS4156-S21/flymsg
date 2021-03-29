@@ -18,21 +18,6 @@ describe DecryptController, type: :controller do
         create_account
     end
 
-    # context "upload a stego image with sender email" do
-    #     it "provides the message inside the image" do
-    #         Steganography
-    #         .new(filename: test_source_filename)
-    #         .encode(message: pk_enc_message, stego_filename: test_steg_filename)
-
-    #         post :create, :params => {
-    #             :image => Rack::Test::UploadedFile.new(test_steg_filename, "image/png"),
-    #             :sender_email => EMAIL
-    #         }, session: SESSION_OBJ
-            
-    #         expect(response).to redirect_to(decrypt_path(Base64.strict_encode64(message)))
-    #     end
-    # end
-
 
     context "upload a stego image" do
         it "provides the message inside the image" do
@@ -48,4 +33,33 @@ describe DecryptController, type: :controller do
         end
     end
 
+    # context "upload a stego image with sender email" do
+    #     it "provides the message inside the image" do
+    #         Steganography
+    #         .new(filename: test_source_filename)
+    #         .encode(message: pk_enc_message, stego_filename: test_steg_filename)
+
+    #         post :create, :params => {
+    #             :image => Rack::Test::UploadedFile.new(test_steg_filename, "image/png"),
+    #             :sender_email => EMAIL
+    #         }, session: SESSION_OBJ
+            
+    #         expect(response).to redirect_to(decrypt_path(Base64.strict_encode64(message)))
+    #     end
+    # end
+
+    context "upload a stego image with incorrect sender email" do
+        it "redirect back to decrypt" do
+            Steganography
+            .new(filename: test_source_filename)
+            .encode(message: pk_enc_message, stego_filename: test_steg_filename)
+
+            post :create, :params => {
+                :image => Rack::Test::UploadedFile.new(test_steg_filename, "image/png"),
+                :sender_email => "lol@lol.com"
+            }, session: SESSION_OBJ
+            
+            expect(response).to redirect_to(decrypt_index_path())
+        end
+    end
 end

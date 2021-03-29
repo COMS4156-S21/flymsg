@@ -37,4 +37,16 @@ describe EncryptController, type: :controller do
             expect(response).to redirect_to(view_path(Base64.strict_encode64(file_name)))
         end
     end
+
+    context "upload an image with a message and incorrect receiver email" do
+        it "redirect to encrypt page" do
+            post :create, :params => {
+                :image => Rack::Test::UploadedFile.new(test_source_filename, "image/png"),
+                :message => message,
+                :receiver_email => "lol@lol.com"
+            }, session: SESSION_OBJ
+            
+            expect(response).to redirect_to(encrypt_index_path())
+        end
+    end
 end
