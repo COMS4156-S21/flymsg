@@ -1,9 +1,9 @@
 Feature: Encrypt and Decode Messages with Steganography
 
 Background: Image with Encrypted message
-    Given test user has an account
-    And test user logs in
-    And test user is logged in
+    Given user test has an account
+    And user test logs in
+    And user test is logged in
     
     Scenario: Encrypt and encode the message in the image
         When I go to the encrypt page
