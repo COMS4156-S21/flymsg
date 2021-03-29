@@ -2,6 +2,7 @@ module SessionsHelper
     def log_in(user)
       session[:user_id] = user.user_id
       session[:first_name] = user.first_name
+      current_user
       puts session
     end
   
