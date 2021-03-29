@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get '/create', to: 'users#new'
   post '/create', to: 'users#create'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 end
