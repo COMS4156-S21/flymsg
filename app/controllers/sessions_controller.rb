@@ -9,10 +9,13 @@ class SessionsController < ApplicationController
     def create
         vals = session_params
         user = User.find_by(email: vals[:email])
+        puts user
         if user && Encryption.check_hashed_password(plaintext: vals[:pwd], hash: user.hashed_pwd, salt: user.salt)
             log_in user
+            puts "good path"
             redirect_to encrypt_index_path()
         else
+            puts "Bad path"
             flash.now[:danger] = 'Invalid email/password combination'
             render 'new'
         end
