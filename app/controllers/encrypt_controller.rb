@@ -57,7 +57,7 @@ class EncryptController < ApplicationController
           puts "encrypted with pem public key of receiver #{receiver_email}"
         else
           puts "No such user found!!"
-          flash[:alert] = "No such user found!"
+          flash[:warning] = "No such user found!"
           redirect_to encrypt_index_path()
           return nil
         end

@@ -28,11 +28,11 @@ class UsersController < ApplicationController
       end
 
       rescue ActiveRecord::RecordInvalid
-        flash[:failure] = "Error while creating new user"
+        flash[:warning] = "Error while creating new user"
         redirect_to 'user#new'
       
       else
-        flash[:success] = "Created! Please login #{params[:first_name]}!"
+        flash[:notice] = "Created! Please login #{params[:first_name]}!"
         redirect_to '/login'
     end
   end

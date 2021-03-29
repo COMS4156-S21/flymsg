@@ -48,7 +48,7 @@ class DecryptController < ApplicationController
               puts "decrypted with pem public key of sender #{sender_email}"
             else
               puts "No such user found!!"
-              flash[:alert] = "No such user found!"
+              flash[:warning] = "No such user found!"
               redirect_to decrypt_index_path()
               return nil
             end

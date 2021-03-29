@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
             redirect_to encrypt_index_path()
         else
             puts "Bad path"
-            flash.now[:danger] = 'Invalid email/password combination'
+            flash.now[:warning] = 'Invalid email/password combination'
             render 'new'
         end
     end
