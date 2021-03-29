@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'capybara'
 require 'base64'
+require 'helpers/login_helper'
 
 message = "hello test"
 file_name = "ms.png"
@@ -16,6 +17,9 @@ describe "Visit view endpoint", :type => :request do
         Steganography
         .new(filename: test_source_filename)
         .encode(message: message, stego_filename: test_steg_filename)
+
+        create_account
+        post '/login', params: {:email => EMAIL, :pwd => PWD}
     end
 
     after :all do

@@ -11,7 +11,9 @@ module SessionsHelper
     end
   
     def logged_in?
-      !current_user.nil?
+      val = (!current_user.nil?) || (session.has_key? "user_id")
+      # puts "Testting for login, result: #{val}, session keys: #{session.keys} and session value: #{session.values}"
+      val
     end
   
     def log_out

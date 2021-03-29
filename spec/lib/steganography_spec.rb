@@ -28,12 +28,12 @@ describe "While applying Steganography" do
     end
 
     context "when non-ascii message and image are passed" do
-        it "throws an exception" do
+        it "does not throw an exception" do
             m = "भारत"
             steg = Steganography.new(filename: test_source_filename)
             expect { 
                 steg.encode(message: m, stego_filename: test_steg_filename)
-        }.to raise_error(SteganographyException)
+        }.not_to raise_error
         end
     end
 
