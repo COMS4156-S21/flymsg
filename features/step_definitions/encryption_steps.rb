@@ -31,6 +31,10 @@ And /be able to download the image/ do
     puts "Field: ", field
 end
 
-And /I enter test user email/ do
+And /I enter test user email for decryption/ do
     step %{I fill in "sender_email" with "test@test.com"}
+end
+
+And /I enter test user email for encryption/ do
+    step %{I fill in "receiver_email" with "test@test.com"}
 end
