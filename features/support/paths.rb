@@ -27,6 +27,8 @@ module NavigationHelpers
   
       when /the decrypt page/ then decrypt_index_path()
 
+      when /the login page/ then login_path()
+
       when /the view page for "(.*)"/ then view_path(Base64.strict_encode64($1))
   
       # when /the Similar Movies page for "(.*)"/ then movies_similar_path(:director => Movie.find_by(title: $1).director)

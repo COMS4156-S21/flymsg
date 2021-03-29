@@ -4,10 +4,14 @@ require "steganography"
 require "encryption"
 
 default_image_path = "#{Rails.root.join("spec").join("support")}"
-default_stego_path = "#{Rails.root.join("spec").join("support").join("ms_steg.png")}"
+default_stego_path = "#{Rails.root.join("storage").join("steg_img")}"
 
-When /I upload an image "(.*)"/ do |file_name|
+When /I upload an image "(.*)" for encryption/ do |file_name|
     step %{I attach the file "#{default_image_path}/#{file_name}" to "image"}
+end 
+
+When /I upload an image "(.*)" for decryption/ do |file_name|
+    step %{I attach the file "#{default_stego_path}/#{file_name}" to "image"}
 end 
 
 And /I enter the message "(.*)"/ do |message|
@@ -25,4 +29,8 @@ end
 And /be able to download the image/ do
     field = find_field("Download")
     puts "Field: ", field
+end
+
+And /I enter test user email/ do
+    step %{I fill in "sender_email" with "test@test.com"}
 end

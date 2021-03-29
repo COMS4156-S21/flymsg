@@ -14,11 +14,7 @@ Background: Image
     Scenario: Decode through S3 bucket 
         When "image" gets passed 
         Then S3 bucket should decode ASCII "message"       
-        
-    Scenario: Encode Non-ASCII message and image 
-        When Illegal "message" that is not ASCII is passed with "image" 
-        Then NON-ASCII SteganographyException "error" should be raised 
-        
+
     Scenario: ASCII message bigger than image
         When ASCII "message" that is bigger than "image" is passed 
         Then Message too large for image SteganographyException "error" should be raised 

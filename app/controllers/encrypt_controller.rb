@@ -49,14 +49,14 @@ class EncryptController < ApplicationController
     # if not, encrypt with current user's private key
     def manage_message(receiver_email, message)
       if receiver_email != nil
-        puts "receiver email set as #{receiver_email}"
+        #puts "receiver email set as #{receiver_email}"
         user = User.find_by(email: receiver_email)
         if user
           pem = UserKey.find_by(user_id: user.user_id).pem
           message = Encryption.encrypt_message_public_key(pem: pem, msg: message)
-          puts "encrypted with pem public key of receiver #{receiver_email}"
+          #puts "encrypted with pem public key of receiver #{receiver_email}"
         else
-          puts "No such user found!!"
+          #puts "No such user found!!"
           flash[:warning] = "No such user found!"
           redirect_to encrypt_index_path()
           return nil
@@ -64,7 +64,7 @@ class EncryptController < ApplicationController
       else
         curr_pem = UserKey.find_by(user_id: session[:user_id]).pem
         message = Encryption.encrypt_message_private_key(pem: curr_pem, msg: message)
-        puts "encrypted with pem private key of current user #{session[:first_name]}"
+        #puts "encrypted with pem private key of current user #{session[:first_name]}"
       end
       return message
     end
