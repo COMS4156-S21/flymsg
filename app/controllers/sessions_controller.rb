@@ -17,7 +17,11 @@ class SessionsController < ApplicationController
             #puts "good path"
             redirect_to encrypt_index_path()
         else
-            #puts "Bad path"
+            #puts "Bad pathxxxx"
+            #puts "vals email: " + vals[:email] + ", vals pwd: " + vals[:pwd]
+            # if user
+            #     #puts "user obj email: " + user.email
+            # end
             flash.now[:warning] = 'Invalid email/password combination'
             render 'new'
         end

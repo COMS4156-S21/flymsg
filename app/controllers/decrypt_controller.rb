@@ -38,7 +38,7 @@ class DecryptController < ApplicationController
                 redirect_to decrypt_path(Base64.strict_encode64(message))
             end
         rescue
-            flash[:warning] = "Some error!"
+            flash[:warning] = "Some error 3!"
             redirect_to decrypt_index_path()
         end
     end 
@@ -49,9 +49,12 @@ class DecryptController < ApplicationController
                 #puts "sender email set as #{sender_email}"
                 user = User.find_by(email: sender_email)
                 if user
+                    #puts "attempting to decrypt here"
                     pem = UserKey.find_by(user_id: user.user_id).pem
+                    #puts "found pem"
                     message = Encryption.decrypt_message_public_key(pem: pem, msg: message)
-                    #puts "decrypted with pem public key of sender #{sender_email}"
+                    #puts "finding message"
+                    puts "decrypted with pem public key of sender #{sender_email}"
                 else
                     #puts "No such user found!!"
                     flash[:warning] =  "No such user found! "
@@ -59,9 +62,11 @@ class DecryptController < ApplicationController
                     message = nil
                 end
             else
+                #puts "attemping to decrupt via other route"
                 curr_pem = UserKey.find_by(user_id: session[:user_id]).pem
+                #puts "found pem"
                 message = Encryption.decrypt_message_private_key(pem: curr_pem, msg: message)
-                #puts "decrypted with pem private key of current user #{session[:first_name]}"
+                puts "decrypted with pem private key of current user #{session[:first_name]}"
             end
         rescue
             flash[:warning] = "Unable to find any message!"

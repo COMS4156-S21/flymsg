@@ -44,7 +44,7 @@ class EncryptController < ApplicationController
             redirect_to view_path(Base64.strict_encode64(file_name))
           end
         rescue
-          flash[:warning] = "Some error!"
+          flash[:warning] = "Some error 2!"
           redirect_to encrypt_index_path()
         end
     end    
@@ -73,7 +73,7 @@ class EncryptController < ApplicationController
           #puts "encrypted with pem private key of current user #{session[:first_name]}"
         end
       rescue
-        flash[:warning] = "Some error!"
+        flash[:warning] = "Some error q!"
         message = nil
         redirect_to encrypt_index_path()
       end

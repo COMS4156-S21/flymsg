@@ -27,7 +27,7 @@ describe UsersController, type: :controller do
         it "creates and redirects to the login page" do
             post :create, :params => {
                 :email => "random@random.com",
-                :pwd => "randompwd"
+                :pwd => "randompwdrandompwdrandompwd"
             }
             
             expect(response).to redirect_to(login_path())

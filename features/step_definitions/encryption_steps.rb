@@ -35,6 +35,10 @@ And /I enter test user email for decryption/ do
     step %{I fill in "sender_email" with "test@test.com"}
 end
 
+And /I enter testnew user email for decryption/ do
+    step %{I fill in "sender_email" with "testnew@testnew.com"}
+end
+
 And /I enter random user email for decryption/ do
     step %{I fill in "sender_email" with "random@random.com"}
 end
@@ -42,6 +46,11 @@ end
 And /I enter test user email for encryption/ do
     step %{I fill in "receiver_email" with "test@test.com"}
 end
+
+And /I enter testnew user email for encryption/ do
+    step %{I fill in "receiver_email" with "testnew@testnew.com"}
+end
+
 
 And /I enter random user email for encryption/ do
     step %{I fill in "receiver_email" with "random@random.com"}
