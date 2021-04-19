@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   # returns nil message on valid
   # else provides a error message
   def is_valid_info(vals)
-    if vals[:email] and !vals[:email].match "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    if !vals[:email] or (vals[:email] and !vals[:email].match "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")
       return "Please provide a valid email address"
-    elsif vals[:pwd] and vals[:pwd].length < 3
+    elsif !vals[:pwd] or (vals[:pwd] and vals[:pwd].length < 3)
       return "Please provide a password that is at least 3 characters long"
-    elsif vals[:last_name] and vals[:last_name].length < 1
+    elsif !vals[:last_name] or (vals[:last_name] and vals[:last_name].length < 1)
       return "Please provide last name"
-    elsif vals[:first_name] and vals[:first_name].length < 1
+    elsif !vals[:first_name] or (vals[:first_name] and vals[:first_name].length < 1)
       return "Please provide first name"
     else
       return nil
