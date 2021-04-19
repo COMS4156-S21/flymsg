@@ -5,8 +5,18 @@ class UsersController < ApplicationController
   def new
   end
 
+  def user_exists(email)
+    return User.find_by(email:  email)
+  end
+
   def create
     vals = user_params
+    if user_exists(vals[:email])
+      flash[:warning] = "Email already in use"
+      redirect_to '/create'
+      return
+    end
+
 
     user_id = SecureRandom.uuid
     hash = Encryption.hash_password(vals[:pwd])
