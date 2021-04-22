@@ -1,4 +1,71 @@
-<%= form_with multipart: true do |form| %>
-    <%= form.file_field :image %>
-    <%= form.submit "Decrypt" %>
-<% end %>
+<section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Decrypt
+        </p>
+        <p class="subtitle">
+            Retreive the secret message from an image!
+        </p>
+        </div>
+    </div>
+
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+            <ul>
+            <li>
+                <a id="targeted_false" href="/decrypt?targeted=false">Public</a>
+            </li>
+            <li>
+                <a id="targeted_true" href="/decrypt?targeted=true">Targeted</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+</section>
+
+<div class="mt-5">
+    <%= form_with multipart: true do |form| %>
+        <div id="file-upload-container" class="file is-centered is-boxed is-link has-name is-large">
+            <label class="file-label">
+                <input class="file-input" type="file" name="image" accept="image/*">
+                <span class="file-cta">
+                <span class="file-icon">
+                    <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                    Upload the image
+                </span>
+                </span>
+                <span class="file-name">
+                    eg. flyer.jpg
+                </span>
+            </label>
+        </div>
+
+        <% if @targeted == false %>
+            <div class="has-text-centered mt-5" style="margin: 0 26rem">
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <%= form.text_field :sender_email, class: "input", placeholder: "sender email" %>
+                        <span class="icon is-small is-left">
+                        <i class="fa fa-envelope"></i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="has-text-centered mt-5">
+            <div class="field">
+                <p class="control">
+                    <%= form.submit "Decrypt", class: "button is-primary is-medium is-rounded" %>
+                </p>
+            </div>
+        </div>
+
+    <% end %>
+    
+</div>

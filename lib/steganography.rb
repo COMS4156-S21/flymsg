@@ -4,6 +4,7 @@
 require 'rmagick'
 require 'chunky_png'
 require 'base64'
+require 'steganography_ex'
 
 class Steganography
   include ChunkyPNG
@@ -28,9 +29,9 @@ class Steganography
   # the stego_filename is the file with the full path
   def encode(message:, stego_filename:)
 	message = message.force_encoding('UTF-8')
-	unless message.ascii_only?
-		raise SteganographyException.new "Non-ascii characters in the message"
-	end
+	# unless message.ascii_only?
+	# 	raise SteganographyException.new "Non-ascii characters in the message"
+	# end
 
 	message = @delim + message + @delim
 	binary_message = message.unpack('B*')[0].split(//).map(&:to_i)

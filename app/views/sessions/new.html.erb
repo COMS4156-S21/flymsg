@@ -1,0 +1,52 @@
+<section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Login
+        </p>
+        <p class="subtitle">
+            Please enter your email and password
+        </p>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="mt-5">
+    <%= form_with do |form| %>        
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.email_field :email, class: "input", placeholder: "Email" %>
+                  <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5" style="margin: 0 26rem">
+          <div class="field">
+              <p class="control has-icons-left">
+                  <%= form.password_field :pwd, class: "input", placeholder: "Password" %>
+                  <span class="icon is-small is-left">
+                  <i class="fa fa-key"></i>
+                  </span>
+              </p>
+          </div>
+      </div>
+
+      <div class="has-text-centered mt-5">
+          <div class="field">
+              <p class="control">
+                  <%= form.submit "Login", class: "button is-primary is-medium is-rounded" %>
+              </p>
+          </div>
+          <p>New User? <a href="/create">Sign Up</a></p>
+      </div>
+
+    <% end %>
+    
+</div>

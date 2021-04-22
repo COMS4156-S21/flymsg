@@ -1,18 +1,19 @@
 require 'base64'
 require 'constants'
 
-class ViewController < ActionController::Base
-
+class ViewController < ApplicationController
+    before_action :logged_in_user
+    
     def show
         @file_name = "#{STEG_IMG_STORAGE}/#{Base64.decode64(params[:id])}"
         @file_data = Base64.encode64(File.open(@file_name , "rb").read)
     end
 
-    def getImage64()
-        file = params[:filename]
-        full_steg_file_name = "#{STEG_IMG_STORAGE}/#{file}"
-        return Steganography.img_in_base64()
-    end
+    # def getImage64()
+    #     file = params[:filename]
+    #     full_steg_file_name = "#{STEG_IMG_STORAGE}/#{file}"
+    #     return Steganography.img_in_base64()
+    # end
 
     def download
         full_steg_file_name = params[:file_name]

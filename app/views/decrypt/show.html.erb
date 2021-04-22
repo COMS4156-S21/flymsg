@@ -1,1 +1,16 @@
-<p>Decrypted Message: <strong> <%= @message %> </strong> </p>
+<section class="hero is-link is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <p class="title">
+            Message Decrypted!
+        </p>
+        <p class="subtitle">
+            The secret message retreived from the image is as follows
+        </p>
+        </div>
+    </div>
+</section>
+
+<div class="mt-5 is-flex is-size-1 has-text-weight-bold is-family-monospace card container" style="justify-content: center">
+    <%= @message %>
+</div>

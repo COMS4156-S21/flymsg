@@ -1,0 +1,2 @@
+class ImgStorage < ApplicationRecord
+end

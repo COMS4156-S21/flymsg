@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'capybara'
 require 'steganography'
+require 'helpers/login_helper'
 
 file_name = "ms.png"
 steg_file_name = "ms_steg.png"
@@ -19,6 +20,8 @@ describe ViewController, type: :controller do
         Steganography
         .new(filename: test_source_filename)
         .encode(message: message, stego_filename: test_steg_filename)
+
+        create_account
     end
 
     after :all do
@@ -30,9 +33,9 @@ describe ViewController, type: :controller do
         it "provides the stego image" do
             post :show, :params => {
                 :id => Base64.strict_encode64(steg_file_name),
-            }
+            }, session: SESSION_OBJ
             
-            expect(response.body).to include("Download Encrypted Image")
+            expect(response.body).to include("Download")
             expect(response.body).to include(Base64.encode64(File.open(test_steg_filename , "rb").read))
         end
     end
